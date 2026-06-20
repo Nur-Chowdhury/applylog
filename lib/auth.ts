@@ -1,0 +1,19 @@
+// lib/auth.ts
+
+import { auth } from "@/auth";
+
+export async function getCurrentUser() {
+    const session = await auth();
+
+    return session?.user ?? null;
+}
+
+export async function requireUser() {
+    const session = await auth();
+
+    if (!session?.user) {
+        throw new Error("Unauthorized");
+    }
+
+    return session.user;
+}
