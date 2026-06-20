@@ -65,3 +65,8 @@ export interface CreateJobPayload {
     fileType?: string;
     fileSize?: number;
 }
+
+export interface UpdateJobPayload
+    extends Partial<CreateJobPayload> {
+    status?: JobStatus;
+}
