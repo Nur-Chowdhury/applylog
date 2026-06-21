@@ -70,3 +70,27 @@ export interface UpdateJobPayload
     extends Partial<CreateJobPayload> {
     status?: JobStatus;
 }
+
+export type SerializedJob = {
+    id: string;
+    companyName: string;
+    jobPosition: string;
+    status: JobStatus;
+    jobType: JobType | null;
+    description: string | null;
+    location: string | null;
+    salary: string | null;
+    jobPostingUrl: string | null;
+    personalNotes: string | null;
+    referrerName: string | null;
+    referrerProfileLink: string | null;
+    fileName: string | null;
+    fileUrl: string | null;
+    fileType: string | null;
+    fileSize: number | null;
+    interviewCount: number;
+    nextInterviewDate: string | null;
+    createdAt: string;
+    updatedAt: string;
+    userId: string;
+};
