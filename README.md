@@ -125,3 +125,9 @@ Open <http://localhost:3000> in your browser to view the application.
 ## License 📄
 
 This project is intended for educational and portfolio purposes. Feel free to modify and extend it to fit your own job search workflow.
+
+---
+
+## Author ✍️
+
+**Nayamat Ullah Chowdhury Nur**
