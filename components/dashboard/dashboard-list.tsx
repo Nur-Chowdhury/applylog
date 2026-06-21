@@ -1,12 +1,10 @@
 // components/dashboard/dashboard-list.tsx
-
-import { JobApplication } from "@prisma/client";
-
+import { SerializedJob } from "@/types/job";
 import { JobListItem } from "./job-list-item";
 
 interface DashboardListProps {
-    jobs: JobApplication[];
-    onSelectJob: (job: JobApplication) => void;
+    jobs: SerializedJob[];
+    onSelectJob: (job: SerializedJob) => void;
 }
 
 export function DashboardList({
@@ -14,7 +12,7 @@ export function DashboardList({
     onSelectJob,
 }: DashboardListProps) {
     return (
-        <div className="space-y-3">
+        <div className="flex flex-col gap-3.5">
             {jobs.map((job) => (
                 <JobListItem
                     key={job.id}

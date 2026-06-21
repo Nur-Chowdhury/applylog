@@ -1,3 +1,4 @@
+// lib/validations/job.ts
 import { z } from "zod";
 
 export const createJobSchema = z.object({
@@ -17,6 +18,7 @@ export const createJobSchema = z.object({
         "WITHDRAWN",
     ]).default("PROCESSING"),
 
+    // Adding .nullable() allows empty values from inputs to be saved as null safely
     jobType: z.enum([
         "FULL_TIME",
         "PART_TIME",
@@ -24,32 +26,25 @@ export const createJobSchema = z.object({
         "INTERNSHIP",
         "REMOTE",
         "HYBRID",
-    ]).optional(),
+    ]).nullable().optional(),
 
-    description: z.string().optional(),
-
-    location: z.string().optional(),
-
-    salary: z.string().optional(),
-
-    jobPostingUrl: z.string().url().optional().or(z.literal("")),
-
-    personalNotes: z.string().optional(),
-
-    referrerName: z.string().optional(),
-
-    referrerProfileLink: z.string().url().optional().or(z.literal("")),
-
-    nextInterviewDate: z.string().optional(),
-
-    fileName: z.string().optional(),
-
-    fileUrl: z.string().optional(),
-
-    fileType: z.string().optional(),
-
-    fileSize: z.number().optional(),
-
+    description: z.string().nullable().optional(),
+    location: z.string().nullable().optional(),
+    salary: z.string().nullable().optional(),
+    
+    jobPostingUrl: z.string().url().or(z.literal("")).nullable().optional(),
+    
+    personalNotes: z.string().nullable().optional(),
+    referrerName: z.string().nullable().optional(),
+    
+    referrerProfileLink: z.string().url().or(z.literal("")).nullable().optional(),
+    
+    nextInterviewDate: z.string().nullable().optional(),
+    fileName: z.string().nullable().optional(),
+    fileUrl: z.string().nullable().optional(),
+    fileType: z.string().nullable().optional(),
+    fileSize: z.number().nullable().optional(),
+    
     interviewCount: z.number().int().min(0).default(0),
 });
 

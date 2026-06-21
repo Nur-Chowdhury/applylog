@@ -1,3 +1,6 @@
+// app/api/jobs/[jobId]/route.ts
+
+
 import { NextResponse } from "next/server";
 
 import { auth } from "@/auth";

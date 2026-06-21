@@ -1,12 +1,10 @@
 // components/dashboard/dashboard-grid.tsx
-
-import { JobApplication } from "@prisma/client";
-
+import { SerializedJob } from "@/types/job";
 import { JobCard } from "./job-card";
 
 interface DashboardGridProps {
-    jobs: JobApplication[];
-    onSelectJob: (job: JobApplication) => void;
+    jobs: SerializedJob[];
+    onSelectJob: (job: SerializedJob) => void;
 }
 
 export function DashboardGrid({
@@ -14,7 +12,7 @@ export function DashboardGrid({
     onSelectJob,
 }: DashboardGridProps) {
     return (
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {jobs.map((job) => (
                 <JobCard
                     key={job.id}

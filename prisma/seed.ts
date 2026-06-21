@@ -1,3 +1,5 @@
+// prisma/seed.ts
+
 import { prisma } from "../lib/prisma";
 
 async function main() {
